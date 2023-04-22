@@ -1,19 +1,23 @@
 N, X = gets.split.map(&:to_i)
 A = gets.split.map(&:to_i)
 
-low = 0
-high = A.size-1
-while low <= high
-    mid = (low + high) / 2
-    if A[mid] == X
-        puts mid + 1
-        return
-    elsif A[mid] < X
-        low = mid + 1
-    else
-        high = mid - 1
+def search(a)
+    low = 0
+    high = A.size-1
+    while low <= high
+        mid = (low + high) / 2
+        if A[mid] == X
+            return mid + 1
+        elsif A[mid] < X
+            low = mid + 1
+        else
+            high = mid - 1
+        end
     end
+    return -1
 end
+
+puts search(A)
 
 # $ ruby codes/ruby/chap03/answer_A11.rb 
 # 15 47
